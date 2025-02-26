@@ -6,6 +6,7 @@
 :root{
     --index: calc(1vw + 1vh);
     --textColor: #e7e7e0;
+    --transition:transform .75s cubic-bezier(0.075, 0.5, 0, 1);
 }
 
 @font-face {
@@ -56,6 +57,7 @@ body{
     background-position: center;
     will-change: transform;
     z-index: 2;
+    transition: var(--transition);
 }
 .layers__base{
     transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
@@ -63,6 +65,7 @@ body{
 }
 .layer__middle{
     transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
+
 }
 .layers__front{
     transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
@@ -70,6 +73,7 @@ body{
 .layer__header{
     z-index: 1;
     transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    transition: var(--transition);
     will-change: transform;
     text-transform: uppercase;
     font-weight: 900;
@@ -86,7 +90,7 @@ body{
     margin-top: calc(var(--index) *-.75);
 }
 .main-article{
-    --main-article-transform: translate3d(0, calc(var(--scrollTop) / -10), 0);
+    --main-article-transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
     min-height: 100vh;
     background-size: cover;
     background-position: center;
@@ -102,13 +106,15 @@ body{
     font-size: calc(var(--index) * 1.8);
     letter-spacing: calc(var(--index) / 7.5);
     transform: var(--main-article-transform);
-        will-change: transform;
+    transition: var(--transition);
+    will-change: transform;
 }
 .main-article__paragraph{
     max-width: calc(var(--index) * 30);
     font-size: calc(var(--index) * .9);
     margin-top: calc(var(--index) / 1.25);
     transform: var(--main-article-transform);
+    transition: var(--transition);
         will-change: transform;
 }
 .copy{
@@ -117,4 +123,7 @@ body{
     opacity: 0.45;
     font-size: calc(var(--index) * .75);
     letter-spacing: calc(var(--index) / 35);
+}
+.content{
+    will-change: transform;
 }
